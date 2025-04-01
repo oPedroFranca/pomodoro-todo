@@ -11,6 +11,8 @@ export const TimerContainer = styled.div `
 `
 
 export const PomodoroInfoContainer = styled.div `
+  background-color: white;
+  
   display: flex;
 
   width: 100vw;
