@@ -67,5 +67,13 @@ function formatDate(date: Date) {
 
 Seguindo essas regras, manteremos um código limpo, organizado e fácil de entender para todos!
 
+## 5. Motivos para seguir os padrões
+
+Se tivermos um bom desempenho e alcançarmos um resultado satisfatório com o website, iremos publicá-lo no LinkedIn como portfólio para futuras contratações. Por isso, é essencial seguir esses padrões, pois o projeto será visto por outras pessoas e pode impactar oportunidades profissionais.
+
+Empresas constroem seus sistemas inteiramente em inglês e seguem padrões internos rigorosos para garantir qualidade, manutenção e escalabilidade. Por isso seria interessante simular as mesmas práticas.
+
+![image](https://github.com/user-attachments/assets/8f671f95-3c6e-421e-a89a-60b445b2cd9f)
+
 Se tiver dúvidas, pergunte no grupo do projeto. 🚀
 
