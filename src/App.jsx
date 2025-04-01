@@ -1,9 +1,10 @@
+import { Pomodoro } from './pages/Pomodoro/index.jsx';
 import * as S from './styles.jsx'
 
 function App() {
   return (
     <S.Container>
-      <p>Pomodoro Project</p>
+      <Pomodoro />
     </S.Container>
   );
 }
