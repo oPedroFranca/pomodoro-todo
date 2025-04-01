@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
   display: flex;
 
-  background-color: #161A22;
+  background-color: ${({ theme }) => theme.colors.black[700]};
   width: 100vw;
   height: 100vh;
 

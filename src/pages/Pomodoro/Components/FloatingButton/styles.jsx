@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { IoIosArrowForward as defaultArrow } from "react-icons/io";
 
 export const FloatingButton = styled.button `
-  background-color: #26293D;
+  background-color: ${({ theme }) => theme.colors.black[600]};
   color: white;
   position: fixed;
   right: 20px;
@@ -25,7 +25,7 @@ export const FloatingButton = styled.button `
   
 
   &:hover {
-    border: solid 2px #9078D4
+    border: solid 2px ${({ theme }) => theme.colors.purple[700]}
   }
 `;
 
@@ -35,6 +35,6 @@ export const Arrow = styled(defaultArrow) `
 
   transition: color ease-in-out 0.3s;
   ${FloatingButton}:hover & {
-    color: #9078D4;
+    color: ${({ theme }) => theme.colors.purple[700]};
   }
 `

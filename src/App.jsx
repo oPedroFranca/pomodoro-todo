@@ -2,6 +2,8 @@ import { Pomodoro } from './pages/Pomodoro/index.jsx';
 import { TodoList } from './pages/TodoList/index.jsx';
 import * as S from './styles.jsx';
 import { useRef, useState } from 'react';
+import { darkTheme } from './theme/darkTheme.jsx';
+import { ThemeProvider } from 'styled-components';
 
 function App() {
   const containerRef = useRef(null);
@@ -18,20 +20,22 @@ function App() {
   };
 
   return (
-    <S.MainContainer ref={containerRef}>
-      <S.Page>
-        <Pomodoro 
-          handleSlide={handleSlide}
-          isPomodoroActive={isPomodoroActive}
-        />
-      </S.Page>
-      <S.Page>
-        <TodoList
-          handleSlide={handleSlide}
-          isPomodoroActive={isPomodoroActive}
-        />
-      </S.Page>
-    </S.MainContainer>
+    <ThemeProvider theme={darkTheme}>
+      <S.MainContainer ref={containerRef}>
+        <S.Page>
+          <Pomodoro
+            handleSlide={handleSlide}
+            isPomodoroActive={isPomodoroActive}
+          />
+        </S.Page>
+        <S.Page>
+          <TodoList
+            handleSlide={handleSlide}
+            isPomodoroActive={isPomodoroActive}
+          />
+        </S.Page>
+      </S.MainContainer>
+    </ThemeProvider>
   );
 }
 
