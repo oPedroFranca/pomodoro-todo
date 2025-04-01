@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div `
-  color: black;
+  display: flex;
+  background-color: #323232;
+
+  width: 100%;
+  height: 40px;
 `
