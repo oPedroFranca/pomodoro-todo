@@ -1,8 +1,12 @@
-import * as S from './styles'
-export const Pomodoro = () => {
+import * as S from './styles';
+import { FloatingButton } from './Components/FloatingButton'
+
+export const TodoList = ({ handleSlide, isPomodoroActive }) => {
   return (
     <S.Container>
-      <p>Development Area</p>
+      <p>To-do Area</p>
+      
+      <FloatingButton onClick={handleSlide} isPomodoroActive={isPomodoroActive} />
     </S.Container>
-  )
-}
+  );
+};
