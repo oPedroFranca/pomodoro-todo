@@ -12,13 +12,12 @@ export const Pomodoro = ({ handleSlide, isPomodoroActive}) => {
 
       <S.TimerContainer>
         <Timer />
+        <FloatingButton onClick={handleSlide} isPomodoroActive={isPomodoroActive} />
       </S.TimerContainer>
 
       <S.PomodoroInfoContainer>
         <PomodoroInfo />
       </S.PomodoroInfoContainer>
-
-      <FloatingButton onClick={handleSlide} isPomodoroActive={isPomodoroActive} />
 
       <Footer />
     </S.Container>

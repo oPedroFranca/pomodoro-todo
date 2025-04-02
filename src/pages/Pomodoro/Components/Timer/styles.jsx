@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { IoReload as defaultReset } from "react-icons/io5";
 import { PiGear as defaultGear } from "react-icons/pi";
+import { FaPlay as  defaultPlay} from "react-icons/fa";
+import { IoPause as defaultPause} from "react-icons/io5";
 
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.black[600]};
@@ -13,8 +15,8 @@ export const Container = styled.div`
   
   margin: auto;
 
-  width: 380px;
-  height: 300px;
+  width: 400px;
+  height: 330px;
 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.307);
   border-radius: 24px;
@@ -39,25 +41,6 @@ export const ButtonOptions = styled.button`
   height: 28px;
 
   transition: background-color 0.3s ease, font-weight 0.3s ease;
-`
-
-export const TimerContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-color: red; */
-
-  width: 180px;
-  height: 180px;
-
-  border-radius: 50%;
-
-  margin: auto;
-`
-
-export const Timer = styled.div`
-  font-size: 45px;
-  font-weight: bold;
 `
 
 export const FooterButtonOptions = styled.div`
@@ -95,4 +78,48 @@ export const ButtonStartStop = styled.button`
 export const ButtonReset = styled(defaultReset)`
   font-size: 30px;
   cursor: pointer;
+`
+
+export const ProgressCircle = styled.svg`
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  transform: rotate(-90deg);
+  z-index: 1;
+`;
+
+export const TimerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: red; */
+
+  width: 200px;
+  height: 200px;
+
+  border-radius: 50%;
+  margin: auto;
+
+  position: relative;
+`
+
+export const Timer = styled.div`
+  font-size: 42px;
+  font-weight: 400;
+`
+
+export const InsideTimerProgress = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+export const PlayIcon = styled(defaultPlay)`
+  font-size: 20px;
+  margin-top: 10px;
+`
+
+export const PauseIcon = styled(defaultPause)`
+  font-size: 20px;
+  margin-top: 10px;
 `

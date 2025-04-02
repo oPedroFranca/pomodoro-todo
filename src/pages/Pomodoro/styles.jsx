@@ -8,6 +8,8 @@ export const TimerContainer = styled.div `
   
   width: 100vw;
   height: calc(100vh - 40px);
+
+  position: relative;
 `
 
 export const PomodoroInfoContainer = styled.div `

@@ -4,7 +4,7 @@ import { IoIosArrowForward as defaultArrow } from "react-icons/io";
 export const FloatingButton = styled.button `
   background-color: ${({ theme }) => theme.colors.black[600]};
   color: white;
-  position: fixed;
+  position: absolute;
   right: 20px;
   top: 50%;
   transform: translateY(-50%);

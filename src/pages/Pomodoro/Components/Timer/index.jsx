@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import * as S from "./styles";
+import { darkTheme } from '../../../../theme/darkTheme';
+
 
 export const Timer = () => {
   const [timerOptions, setTimerOptions] = useState({
-    pomodoro: { timer: 25 * 60 * 1000, active: true },  // tempo em milissegundos
+    pomodoro: { timer: 0.10 * 60 * 1000, active: true },  // tempo em milissegundos
     shortBreak: { timer: 5 * 60 * 1000, active: false },
     longBreak: { timer: 15 * 60 * 1000, active: false },
   });
@@ -50,8 +52,7 @@ export const Timer = () => {
 
   // Cálculo do progresso da barra (0 a 100%)
   const progress = ((timerOptions[mode].timer - timeLeft) / timerOptions[mode].timer) * 100;
-  console.log(progress);
-  
+
   return (
     <S.Container>
       <S.ButtonsContainer>
@@ -67,10 +68,51 @@ export const Timer = () => {
       </S.ButtonsContainer>
 
       <S.TimerContainer>
-        
-        <S.Timer>
-          {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
-        </S.Timer>
+        <S.ProgressCircle>
+          <defs>
+            <linearGradient id="gradientProgress" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#6a50b1" />
+              <stop offset="100%" stopColor="#c7b3ff" />
+            </linearGradient>
+          </defs>
+
+          <circle
+            cx="100"
+            cy="100"
+            r="90"
+            stroke={darkTheme.colors.black[700]}
+            strokeWidth="10"
+            fill="transparent"
+          />
+          <circle
+            cx="100"
+            cy="100"
+            r="90"
+            stroke="url(#gradientProgress)"
+            strokeWidth="10"
+            fill="transparent"
+            strokeDasharray="565.48"
+            strokeDashoffset={565.48 - (progress / 100) * 565.48}
+            style={{ transition: "stroke-dashoffset 0.5s ease" }}
+            strokeLinecap="round"
+          />
+        </S.ProgressCircle>
+
+        <S.InsideTimerProgress>
+          <p style={{fontSize: '30px'}}>🍅</p>
+
+          <S.Timer>
+            {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
+          </S.Timer>
+
+          <p style={{fontSize: '13px', fontWeight: '400', color: "#ffffff83"}}>FOCUS</p>
+
+          {isRunning ? (
+            <S.PlayIcon />
+          ) : (
+            <S.PauseIcon />
+          )}
+        </S.InsideTimerProgress>
       </S.TimerContainer>
 
       <S.FooterButtonOptions>
