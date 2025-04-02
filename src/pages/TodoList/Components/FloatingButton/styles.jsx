@@ -33,7 +33,7 @@ export const Arrow = styled(defaultArrow) `
 
   transform: rotate(180deg);
 
-  transition: color ease-in-out 0.3s;
+  transition: color ease-in-out 0.2s;
   ${FloatingButton}:hover & {
     color: ${({ theme }) => theme.colors.purple[700]};
   }
