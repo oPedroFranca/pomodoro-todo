@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { IoReload as defaultReset } from "react-icons/io5";
 import { PiGear as defaultGear } from "react-icons/pi";
-import { FaPlay as  defaultPlay} from "react-icons/fa";
-import { IoPause as defaultPause} from "react-icons/io5";
+import { FaPlay as defaultPlay } from "react-icons/fa";
+import { IoPause as defaultPause } from "react-icons/io5";
 
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.black[600]};
@@ -32,10 +32,10 @@ export const ButtonsContainer = styled.div`
 `
 
 export const ButtonOptions = styled.button`
-  background-color: ${({ active, theme }) => (active ? theme.colors.black[700]: "transparent")};
+  background-color: ${({ active, theme }) => (active ? theme.colors.black[700] : "transparent")};
   color: white;
 
-  font-weight: ${({active}) => (active ? 'bold': 'normal')};
+  font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
   border-radius: 4px;
   padding: 2px 12px;
   height: 28px;
@@ -55,6 +55,11 @@ export const FooterButtonOptions = styled.div`
 export const ButtonConfig = styled(defaultGear)`
   font-size: 30px;
   cursor: pointer;
+
+  transition: color ease-in-out 0.2s;
+  &:hover {
+    color: ${({ theme }) => theme.colors.purple[600]};
+  }
 `
 
 export const ButtonStartStop = styled.button`
@@ -78,7 +83,12 @@ export const ButtonStartStop = styled.button`
 export const ButtonReset = styled(defaultReset)`
   font-size: 30px;
   cursor: pointer;
-`
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.purple[600]};
+  }
+`;
 
 export const ProgressCircle = styled.svg`
   position: absolute;

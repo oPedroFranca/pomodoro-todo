@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import * as S from "./styles";
 import { darkTheme } from '../../../../theme/darkTheme';
 
-
 export const Timer = () => {
   const [timerOptions, setTimerOptions] = useState({
     pomodoro: { timer: 0.10 * 60 * 1000, active: true },  // tempo em milissegundos
@@ -99,15 +98,19 @@ export const Timer = () => {
         </S.ProgressCircle>
 
         <S.InsideTimerProgress>
-          <p style={{fontSize: '30px'}}>🍅</p>
+          <p style={{fontSize: '30px'}}>
+            {mode === "pomodoro" ? "🍅" : "☕"}
+          </p>
 
           <S.Timer>
             {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
           </S.Timer>
 
-          <p style={{fontSize: '13px', fontWeight: '400', color: "#ffffff83"}}>FOCUS</p>
+          <p style={{fontSize: '13px', fontWeight: '400', color: "#ffffff83"}}>
+            {mode === "pomodoro" ? "FOCUS" : "RELAX"}
+          </p>
 
-          {isRunning ? (
+          {!isRunning ? (
             <S.PlayIcon />
           ) : (
             <S.PauseIcon />
@@ -116,9 +119,9 @@ export const Timer = () => {
       </S.TimerContainer>
 
       <S.FooterButtonOptions>
-        <S.ButtonConfig >Config</S.ButtonConfig>
+        <S.ButtonConfig />
         <S.ButtonStartStop onClick={toggleTimer}>{isRunning ? "Stop" : "Start"}</S.ButtonStartStop>
-        <S.ButtonReset onClick={resetTimer}>Resetar</S.ButtonReset>
+        <S.ButtonReset onClick={resetTimer}/>
       </S.FooterButtonOptions>
     </S.Container>
   );
