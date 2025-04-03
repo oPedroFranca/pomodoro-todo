@@ -25,10 +25,13 @@ export const Container = styled.div`
 export const ButtonsContainer = styled.div`
   width: 100%;
   padding: 0px 26px;
+  padding-bottom: 13px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  border-bottom: 2px solid #00000039;
 `
 
 export const ButtonOptions = styled.button`
