@@ -8,9 +8,9 @@ import { FloatingButton } from './Components/FloatingButton'
 export const Pomodoro = ({ handleSlide, isPomodoroActive}) => {
   return (
     <S.Container>
-      <Header />
 
       <S.TimerContainer>
+        <Header />
         <Timer />
         <FloatingButton onClick={handleSlide} isPomodoroActive={isPomodoroActive} />
       </S.TimerContainer>
