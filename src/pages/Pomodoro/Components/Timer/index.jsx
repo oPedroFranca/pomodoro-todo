@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 import * as S from "./styles";
 import { darkTheme } from '../../../../theme/darkTheme';
+import { ModalTimer } from '../../../../components/Modal'
+import { toast } from 'react-toastify';
+import { ToastProvider } from '../../../../components/ToastProvider'
 
 export const Timer = () => {
+  const notify = () => toast("Wow, Successful updated time!");
+
   const [timerOptions, setTimerOptions] = useState({
-    pomodoro: { timer: 0.10 * 60 * 1000, active: true },  // tempo em milissegundos
+    pomodoro: { timer: 25 * 60 * 1000, active: true },  // tempo em milissegundos
     shortBreak: { timer: 5 * 60 * 1000, active: false },
     longBreak: { timer: 15 * 60 * 1000, active: false },
   });
@@ -25,9 +30,14 @@ export const Timer = () => {
 
   useEffect(() => {
     setTimeLeft(timerOptions[mode].timer);
-  }, [mode]);
+  }, [timerOptions, mode]);
 
   const toggleTimer = () => setIsRunning(!isRunning);
+
+  const resetTimer = () => {
+    setIsRunning(false);
+    setTimeLeft(timerOptions[mode].timer);
+  };
 
   const changeMode = (newMode) => {
     setIsRunning(false);
@@ -41,17 +51,19 @@ export const Timer = () => {
     setMode(newMode);
   };
 
-  const resetTimer = () => {
+  const handleModalSubmit = () => {
+    notify();
     setIsRunning(false);
+    setTimerOptions((prev) => ({ ...prev })); 
     setTimeLeft(timerOptions[mode].timer);
   };
 
-  const minutes = Math.floor(timeLeft / 60000); // Calcula os minutos a partir de milissegundos
-  const seconds = Math.floor((timeLeft % 60000) / 1000); // Calcula os segundos a partir de milissegundos
-
-  // Cálculo do progresso da barra (0 a 100%)
+  const minutes = Math.floor(timeLeft / 60000); 
+  const seconds = Math.floor((timeLeft % 60000) / 1000); 
   const progress = ((timerOptions[mode].timer - timeLeft) / timerOptions[mode].timer) * 100;
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
   return (
     <S.Container>
       <S.ButtonsContainer>
@@ -98,7 +110,7 @@ export const Timer = () => {
         </S.ProgressCircle>
 
         <S.InsideTimerProgress>
-          <p style={{fontSize: '30px'}}>
+          <p style={{ fontSize: '30px' }}>
             {mode === "pomodoro" ? "🍅" : "☕"}
           </p>
 
@@ -106,7 +118,7 @@ export const Timer = () => {
             {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
           </S.Timer>
 
-          <p style={{fontSize: '13px', fontWeight: '400', color: "#ffffff83"}}>
+          <p style={{ fontSize: '13px', fontWeight: '400', color: "#ffffff83" }}>
             {mode === "pomodoro" ? "FOCUS" : "RELAX"}
           </p>
 
@@ -119,10 +131,21 @@ export const Timer = () => {
       </S.TimerContainer>
 
       <S.FooterButtonOptions>
-        <S.ButtonConfig />
+        <S.ButtonConfig onClick={toggleModal} />
         <S.ButtonStartStop onClick={toggleTimer}>{isRunning ? "Stop" : "Start"}</S.ButtonStartStop>
-        <S.ButtonReset onClick={resetTimer}/>
+        <S.ButtonReset onClick={resetTimer} />
       </S.FooterButtonOptions>
+
+      {isModalOpen && 
+        <ModalTimer 
+          onSubmit={handleModalSubmit} 
+          onClose={toggleModal}
+          timerOptions={timerOptions}
+          setTimerOptions={setTimerOptions}
+        />
+      }
+      
+      <ToastProvider />
     </S.Container>
   );
 };

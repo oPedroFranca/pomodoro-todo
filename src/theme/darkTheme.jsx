@@ -11,5 +11,10 @@ export const darkTheme = {
       600: "#b093ff",
       500: "#c7b3ff",
     },
+  },
+  font: {
+    black: {
+      700: "#00000099",
+    },
   }
 };
