@@ -1,8 +1,8 @@
 import * as S from './styles'
 
-export const CreateTaskButton = () => {
+export const CreateTaskButton = ({ onClick }) => {
   return (
-    <S.CreateTask>
+    <S.CreateTask onClick={onClick}>
       <S.SumIcon />
       New Task
     </S.CreateTask>

@@ -4,14 +4,28 @@ export const CreateTaskContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 10px 16px;
+  padding: ${({ isVisible }) => (isVisible ? '10px 16px' : '0 16px')};
   border-radius: 8px;
-  border: dashed 0.1em #ffffff67;
-  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.2);
-  gap: 12px;
+  border: ${({ isVisible }) => (isVisible ? 'dashed 0.1em #ffffff67' : 'none')};
+  box-shadow: ${({ isVisible }) => (isVisible ? '3px 6px 10px rgba(0, 0, 0, 0.2)' : 'none')};
+  gap: ${({ isVisible }) => (isVisible ? '12px' : '0')};
   position: relative;
+  margin-bottom: ${({ isVisible }) => (isVisible ? '20px' : '0')};
+  overflow: hidden;
 
-  margin-bottom: 20px;
+  /* Animação de entrada e saída */
+  height: ${({ isVisible }) => (isVisible ? 'auto' : '0')};
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transform: ${({ isVisible }) => (isVisible ? 'translateY(0)' : 'translateY(-20px)')};
+  transition: 
+    height 0.3s ease, 
+    opacity 0.3s ease, 
+    transform 0.3s ease, 
+    padding 0.3s ease, 
+    margin-bottom 0.3s ease, 
+    border 0.3s ease, 
+    box-shadow 0.3s ease, 
+    gap 0.3s ease;
 `;
 
 export const InputWrapper = styled.div`

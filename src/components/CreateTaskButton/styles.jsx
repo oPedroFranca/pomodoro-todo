@@ -5,6 +5,7 @@ export const SumIcon = styled(IoAddOutline)`
   color: white;
   margin: auto;
   font-size: 20px;
+  margin-right: 8px;
 `;
 
 export const CreateTask = styled.button`
@@ -20,7 +21,7 @@ export const CreateTask = styled.button`
   padding: 6px 8px;
 
   color: white;
-  border-radius: 5px;
+  border-radius: 8px;
 
   transition: font ease-in 0.2s, background-color ease-in 0.2s;
   transition: background-color 0.5s ease-in-out, transform 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out;

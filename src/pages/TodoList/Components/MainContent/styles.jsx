@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { IoSearch, IoAddOutline } from 'react-icons/io5';
 
 export const Container = styled.div`
-  display: flex;
   width: 58%;
   height: 100vh;
   color: #333;
