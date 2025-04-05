@@ -9,6 +9,9 @@ export const Container = styled.div`
   /* background-color: #f5f5f5; */
   color: #333;
   padding: 10px;
+
+  overflow: visible;
+  position: relative;
 `;
 
 export const Header = styled.div`

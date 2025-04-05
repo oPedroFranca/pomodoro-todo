@@ -9,9 +9,7 @@ export const Container = styled.div`
   border: solid 1px #ffffff67;
   box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.2);
   gap: 12px;
-  position: relative;
   margin-bottom: 20px;
-  overflow: hidden;
 
   opacity: ${({ isNew }) => (isNew ? 0 : 1)};
   transform: ${({ isNew }) => (isNew ? 'translateY(-20px)' : 'translateY(0)')};
@@ -51,6 +49,8 @@ export const TaskInput = styled.input`
     outline: none;
     border-bottom-color: ${({ theme }) => theme.colors.purple[600]};
   }
+
+  cursor: default;
 `;
 export const Footer = styled.div`
   display: flex;
@@ -67,8 +67,8 @@ export const PriorityCircle = styled.span`
     priority === 'High'
       ? '#D9276C'
       : priority === 'Low'
-      ? '#47b6f6'
-      : '#7C3DEC'};
+        ? '#47b6f6'
+        : '#7C3DEC'};
 `;
 
 export const DateInfo = styled.div`
@@ -102,16 +102,16 @@ export const PriorityTag = styled.div`
     priority === 'High'
       ? '#d9276b2e'
       : priority === 'Low'
-      ? '#47b6f62a'
-      : '#7d3dec2a'};
+        ? '#47b6f62a'
+        : '#7d3dec2a'};
       
 
   color: ${({ priority, theme }) =>
     priority === 'High'
       ? '#D9276C'
       : priority === 'Low'
-      ? '#47b6f6'
-      : '#7C3DEC'};;
+        ? '#47b6f6'
+        : '#7C3DEC'};;
   padding: 4px 10px;
   font-weight: 600;
   border-radius: 50px;

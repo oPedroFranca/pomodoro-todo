@@ -13,7 +13,6 @@ export const MainContent = () => {
   const currentDate = getCurrentDate();
 
   const [tasks, setTasks] = useState({});
-  const [tasksDone, setTasksDone] = useState({});
   const [newTaskId, setNewTaskId] = useState(null);
 
   const handleSubmit = (inputValue) => {
@@ -32,7 +31,7 @@ export const MainContent = () => {
         id: taskId,
         name: inputValue,
         date: currentDate,
-        priority: 'Normal',
+        priority: 'High',
         isDone: false,
         selected: false,
       },
@@ -43,35 +42,16 @@ export const MainContent = () => {
   };
 
   const handleTaskCompletion = (taskId) => {
-    const taskInTasks = tasks[taskId];
-    const taskInTasksDone = tasksDone[taskId];
-  
-    if (taskInTasks) {
-      // Mover de tasks para tasksDone
-      setTasksDone((prevTasksDone) => ({
-        ...prevTasksDone,
-        [taskId]: { ...taskInTasks, isDone: true },
-      }));
-      setTasks((prevTasks) => {
-        const { [taskId]: _, ...remainingTasks } = prevTasks;
-        return remainingTasks;
-      });
-
-    } else if (taskInTasksDone) {
-      // Mover de tasksDone para tasks
-      setTasks((prevTasks) => ({
-        ...prevTasks,
-        [taskId]: { ...taskInTasksDone, isDone: false },
-      }));
-      setTasksDone((prevTasksDone) => {
-        const { [taskId]: _, ...remainingTasksDone } = prevTasksDone;
-        return remainingTasksDone;
-      });
-    }
+    setTasks((prevTasks) => ({
+      ...prevTasks,
+      [taskId]: {
+        ...prevTasks[taskId],
+        isDone: !prevTasks[taskId].isDone, 
+      },
+    }));
   };
 
   const taskList = Object.values(tasks);
-  const taskDoneList = Object.values(tasksDone);
 
   return (
     <>
@@ -96,20 +76,9 @@ export const MainContent = () => {
         />
 
         {taskList.map((task) => (
-          <Tasks
-            key={task.id} 
-            taskData={task}
+          <Tasks 
+            key={task.id} taskData={task} 
             isNew={task.id === newTaskId}
-            onTaskComplete={() => handleTaskCompletion(task.id)}
-          />
-        ))}
-
-        <S.TextTitle>Done - {taskDoneList.length}</S.TextTitle>
-        {taskDoneList.map((task) => (
-          <Tasks
-            key={task.id}
-            isNew={task.id === newTaskId}
-            taskData={task}
             onTaskComplete={() => handleTaskCompletion(task.id)}
           />
         ))}

@@ -2,6 +2,7 @@ import { CiCalendar } from "react-icons/ci";
 import { Checkbox } from '../Checkbox';
 import * as S from './styles';
 import { calculateDaysLeft } from '../../utils/calculateDaysLeft';
+import {MenuEdit} from '../../components/MenuEdit'
 
 export const Tasks = ({ taskData, isNewAnimation, onTaskComplete }) => {
   const daysLeft = calculateDaysLeft(taskData.date);
@@ -11,6 +12,7 @@ export const Tasks = ({ taskData, isNewAnimation, onTaskComplete }) => {
       <S.InputWrapper>
         <Checkbox onChange={onTaskComplete} />
         <S.TaskInput isDone={taskData.isDone} value={taskData.name} readOnly />
+        <MenuEdit />
       </S.InputWrapper>
 
       {!taskData.isDone && (

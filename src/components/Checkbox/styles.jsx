@@ -16,5 +16,6 @@ export const Checkbox = styled.div`
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.purple[600]};
+    transform: translate(1px, -1px) scale(1);
   }
 `;
