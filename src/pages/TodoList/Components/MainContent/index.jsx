@@ -8,13 +8,12 @@ import { toast } from 'react-toastify';
 import { ToastProvider } from '../../../../components/ToastProvider';
 
 export const MainContent = () => {
-  const notify = () => toast("Task Created! 🚀");
-
   const [search, setSearch] = useState('');
   const [isCreateButtonClicked, setIsCreateButtonClicked] = useState(false);
   const currentDate = getCurrentDate();
 
   const [tasks, setTasks] = useState({});
+  const [tasksDone, setTasksDone] = useState({});
   const [newTaskId, setNewTaskId] = useState(null);
 
   const handleSubmit = (inputValue) => {
@@ -23,7 +22,7 @@ export const MainContent = () => {
       return;
     }
 
-    notify();
+    toast("Task Created! 🚀");
     setIsCreateButtonClicked(false);
 
     const taskId = Date.now();
@@ -33,6 +32,7 @@ export const MainContent = () => {
         id: taskId,
         name: inputValue,
         date: currentDate,
+        priority: 'Normal',
         isDone: false,
         selected: false,
       },
@@ -42,7 +42,36 @@ export const MainContent = () => {
     setTimeout(() => setNewTaskId(null), 200);
   };
 
+  const handleTaskCompletion = (taskId) => {
+    const taskInTasks = tasks[taskId];
+    const taskInTasksDone = tasksDone[taskId];
+  
+    if (taskInTasks) {
+      // Mover de tasks para tasksDone
+      setTasksDone((prevTasksDone) => ({
+        ...prevTasksDone,
+        [taskId]: { ...taskInTasks, isDone: true },
+      }));
+      setTasks((prevTasks) => {
+        const { [taskId]: _, ...remainingTasks } = prevTasks;
+        return remainingTasks;
+      });
+
+    } else if (taskInTasksDone) {
+      // Mover de tasksDone para tasks
+      setTasks((prevTasks) => ({
+        ...prevTasks,
+        [taskId]: { ...taskInTasksDone, isDone: false },
+      }));
+      setTasksDone((prevTasksDone) => {
+        const { [taskId]: _, ...remainingTasksDone } = prevTasksDone;
+        return remainingTasksDone;
+      });
+    }
+  };
+
   const taskList = Object.values(tasks);
+  const taskDoneList = Object.values(tasksDone);
 
   return (
     <>
@@ -67,7 +96,22 @@ export const MainContent = () => {
         />
 
         {taskList.map((task) => (
-          <Tasks key={task.id} taskData={task} isNew={task.id === newTaskId} />
+          <Tasks
+            key={task.id} 
+            taskData={task}
+            isNew={task.id === newTaskId}
+            onTaskComplete={() => handleTaskCompletion(task.id)}
+          />
+        ))}
+
+        <S.TextTitle>Done - {taskDoneList.length}</S.TextTitle>
+        {taskDoneList.map((task) => (
+          <Tasks
+            key={task.id}
+            isNew={task.id === newTaskId}
+            taskData={task}
+            onTaskComplete={() => handleTaskCompletion(task.id)}
+          />
         ))}
       </S.Container>
     </>

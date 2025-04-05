@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Checkbox = styled.div`
-  width: 25px;
-  height: 25px;
+  width: 28px;
+  height: 28px;
   border: 1px solid #ffffff67;
-  border-radius: 4px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
