@@ -31,7 +31,7 @@ export const MainContent = () => {
         id: taskId,
         name: inputValue,
         date: currentDate,
-        priority: 'High',
+        priority: '',
         isDone: false,
         selected: false,
       },

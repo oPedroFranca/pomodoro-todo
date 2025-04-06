@@ -86,14 +86,12 @@ export const DateInfo = styled.div`
     color: #ffffff67;
   }
 
-  border: dashed 0.11em #ffffff67;
-
   font-weight: 600;
   border-radius: 50px;
   width: 100px;
-  margin-left: 45px;
+  margin-left: 40px;
 
-  letter-spacing: 2px;
+  letter-spacing: 5px;
 
   padding: 4px;
 `;

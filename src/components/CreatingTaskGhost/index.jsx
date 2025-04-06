@@ -1,4 +1,5 @@
-import { IoCalendarOutline, IoCheckmark, IoClose } from 'react-icons/io5';
+import { IoCheckmark, IoClose } from 'react-icons/io5';
+import { CiCalendar } from "react-icons/ci";
 import * as S from './styles';
 import { useState } from 'react';
 export const CreatingTaskGhost = ({ setIsCreateButtonClicked, isVisible, inputValueText, submit }) => {
@@ -22,7 +23,7 @@ export const CreatingTaskGhost = ({ setIsCreateButtonClicked, isVisible, inputVa
 
       <S.Footer>
         <S.DateInfo>
-          <IoCalendarOutline size={14} />
+          <CiCalendar size={16} />
           <span>--/--/--</span>
         </S.DateInfo>
 

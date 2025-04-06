@@ -2,17 +2,24 @@ import { CiCalendar } from "react-icons/ci";
 import { Checkbox } from '../Checkbox';
 import * as S from './styles';
 import { calculateDaysLeft } from '../../utils/calculateDaysLeft';
-import {MenuEdit} from '../../components/MenuEdit'
+import { MenuEdit } from '../../components/MenuEdit';
+import { useState } from 'react';
 
 export const Tasks = ({ taskData, isNewAnimation, onTaskComplete }) => {
+  const [priority, setPriority] = useState(taskData.priority || '');
   const daysLeft = calculateDaysLeft(taskData.date);
+
+  const onStatusChange = (value) => {
+    setPriority(value || '');
+    taskData.priority = value || '';
+  };
 
   return (
     <S.Container isVisible={true} isNew={isNewAnimation}>
       <S.InputWrapper>
         <Checkbox onChange={onTaskComplete} />
         <S.TaskInput isDone={taskData.isDone} value={taskData.name} readOnly />
-        <MenuEdit />
+        <MenuEdit onStatusChange={onStatusChange} />
       </S.InputWrapper>
 
       {!taskData.isDone && (
@@ -26,10 +33,12 @@ export const Tasks = ({ taskData, isNewAnimation, onTaskComplete }) => {
             <p>{daysLeft > 0 ? `${daysLeft} days left` : 'Created today!'}</p>
           </S.DaysLeftTag>
 
-          <S.PriorityTag priority={taskData.priority}>
-            <S.PriorityCircle priority={taskData.priority} />
-            <p>{taskData.priority || 'Normal'}</p>
-          </S.PriorityTag>
+          {priority && (
+            <S.PriorityTag priority={priority}>
+              <S.PriorityCircle priority={priority} />
+              <p>{priority}</p>
+            </S.PriorityTag>
+          )}
         </S.Footer>
       )}
     </S.Container>
