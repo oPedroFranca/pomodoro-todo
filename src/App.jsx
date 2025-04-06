@@ -23,18 +23,17 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <S.MainContainer ref={containerRef}>
         <S.Page>
-          <TodoList
-            handleSlide={handleSlide}
-            isPomodoroActive={isPomodoroActive}
-          />
-        </S.Page>
-        <S.Page>
           <Pomodoro
             handleSlide={handleSlide}
             isPomodoroActive={isPomodoroActive}
           />
         </S.Page>
-
+        <S.Page>
+          <TodoList
+            handleSlide={handleSlide}
+            isPomodoroActive={isPomodoroActive}
+          />
+        </S.Page>
       </S.MainContainer>
     </ThemeProvider>
   );

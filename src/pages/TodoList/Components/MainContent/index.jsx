@@ -7,7 +7,7 @@ import { CreatingTaskGhost } from '../../../../components/CreatingTaskGhost';
 import { Tasks } from '../../../../components/Tasks';
 import { toast } from 'react-toastify';
 import { ToastProvider } from '../../../../components/ToastProvider';
-
+import { NoTaskMessage } from './components/NoTaskMessage'
 export const MainContent = () => {
   const [search, setSearch] = useState('');
   const [isCreateButtonClicked, setIsCreateButtonClicked] = useState(false);
@@ -77,7 +77,10 @@ export const MainContent = () => {
 
           <div style={{ display: 'flex', gap: '10px' }} >
             <EditTaskButton onClick={() => setIsEditing(!isEditing)} isEditing={isEditing} />
-            <CreateTaskButton onClick={() => setIsCreateButtonClicked(true)} />
+            <CreateTaskButton onClick={() => {
+              setIsCreateButtonClicked(true)
+              setIsEditing(false)
+            }} />
           </div>
         </S.Header>
 
@@ -88,16 +91,21 @@ export const MainContent = () => {
           submit={handleSubmit}
         />
 
-        {taskList.map((task, index) => (
-          <Tasks
-            key={task.id} taskData={task}
-            index={index}
-            isNew={task.id === newTaskId}
-            isEditing={isEditing}
-            onTaskComplete={() => handleTaskCompletion(task.id)}
-            onDelete={handleDeleteTask}
-          />
-        ))}
+
+        {taskList.length === 0 ? (
+          <NoTaskMessage />
+        ) : (
+          taskList.map((task, index) => (
+            <Tasks
+              key={task.id} taskData={task}
+              index={index}
+              isNew={task.id === newTaskId}
+              isEditing={isEditing}
+              onTaskComplete={() => handleTaskCompletion(task.id)}
+              onDelete={handleDeleteTask}
+            />
+          ))
+        )}
       </S.Container>
     </>
   );
