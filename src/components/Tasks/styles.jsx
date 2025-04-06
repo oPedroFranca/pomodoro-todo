@@ -1,6 +1,21 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from 'styled-components';
+
+const float = keyframes`
+  0% { transform: translate(0px, -0px); }
+  50% { transform: translate(4px, -8px); }
+  100% { transform: translate(0px, -0px); }
+`;
+
+export const ContainerGhost = styled.div`
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+  background-color: ${({ theme }) => theme.colors.black[600]};
+`;
 
 export const Container = styled.div`
+  background-color: ${({ theme }) => theme.colors.black[700]};
   display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
   flex-direction: column;
   width: 100%;
@@ -9,7 +24,6 @@ export const Container = styled.div`
   border: solid 1px #ffffff67;
   box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.2);
   gap: 12px;
-  margin-bottom: 20px;
 
   opacity: ${({ isNew }) => (isNew ? 0 : 1)};
   transform: ${({ isNew }) => (isNew ? 'translateY(-20px)' : 'translateY(0)')};
@@ -18,6 +32,13 @@ export const Container = styled.div`
   &:hover {
     transform: translate(2px, -2px) scale(1);
   }
+
+  ${({ isEditing, animationDelay }) =>
+    isEditing &&
+    css`
+      animation: ${float} 3s ease-in-out infinite;
+      animation-delay: ${animationDelay || '0s'};
+    `}
 `;
 
 export const ButtonWrapper = styled.div`

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { getCurrentDate } from '../../../../utils/getCurrentDay';
 import { CreateTaskButton } from '../../../../components/CreateTaskButton';
+import { EditTaskButton } from '../../../../components/EditTaskButton';
 import * as S from './styles';
 import { CreatingTaskGhost } from '../../../../components/CreatingTaskGhost';
 import { Tasks } from '../../../../components/Tasks';
@@ -10,6 +11,7 @@ import { ToastProvider } from '../../../../components/ToastProvider';
 export const MainContent = () => {
   const [search, setSearch] = useState('');
   const [isCreateButtonClicked, setIsCreateButtonClicked] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const currentDate = getCurrentDate();
 
   const [tasks, setTasks] = useState({});
@@ -46,7 +48,7 @@ export const MainContent = () => {
       ...prevTasks,
       [taskId]: {
         ...prevTasks[taskId],
-        isDone: !prevTasks[taskId].isDone, 
+        isDone: !prevTasks[taskId].isDone,
       },
     }));
   };
@@ -65,7 +67,10 @@ export const MainContent = () => {
 
           <S.ActualDate>{currentDate}</S.ActualDate>
 
-          <CreateTaskButton onClick={() => setIsCreateButtonClicked(true)} />
+          <div style={{ display: 'flex', gap: '10px' }} >
+            <EditTaskButton onClick={() => setIsEditing(!isEditing)} isEditing={isEditing} />
+            <CreateTaskButton onClick={() => setIsCreateButtonClicked(true)} />
+          </div>
         </S.Header>
 
         <S.TextTitle>Tasks - {taskList.length}</S.TextTitle>
@@ -75,11 +80,13 @@ export const MainContent = () => {
           submit={handleSubmit}
         />
 
-        {taskList.map((task) => (
-          <Tasks 
-            key={task.id} taskData={task} 
+        {taskList.map((task, index) => (
+          <Tasks
+            key={task.id} taskData={task}
             isNew={task.id === newTaskId}
+            isEditing={isEditing}
             onTaskComplete={() => handleTaskCompletion(task.id)}
+            index={index}
           />
         ))}
       </S.Container>

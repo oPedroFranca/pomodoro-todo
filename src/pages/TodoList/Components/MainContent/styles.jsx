@@ -73,6 +73,4 @@ export const ActualDate = styled.p`
   font-weight: 600;
   font-size: 12px;
   color: #ffffffa4;
-  margin-right: 95px;
 `;
-
