@@ -53,6 +53,14 @@ export const MainContent = () => {
     }));
   };
 
+  const handleDeleteTask = (taskId) => {
+    setTasks((prevTasks) => {
+      const updatedTasks = { ...prevTasks };
+      delete updatedTasks[taskId];
+      return updatedTasks;
+    });
+  };
+
   const taskList = Object.values(tasks);
 
   return (
@@ -83,10 +91,11 @@ export const MainContent = () => {
         {taskList.map((task, index) => (
           <Tasks
             key={task.id} taskData={task}
+            index={index}
             isNew={task.id === newTaskId}
             isEditing={isEditing}
             onTaskComplete={() => handleTaskCompletion(task.id)}
-            index={index}
+            onDelete={handleDeleteTask}
           />
         ))}
       </S.Container>

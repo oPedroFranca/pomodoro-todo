@@ -5,7 +5,7 @@ import { calculateDaysLeft } from '../../utils/calculateDaysLeft';
 import { MenuEdit } from '../../components/MenuEdit';
 import { useState } from 'react';
 
-export const Tasks = ({ taskData, isNewAnimation, onTaskComplete, isEditing, index }) => {
+export const Tasks = ({ taskData, isNewAnimation, onTaskComplete, isEditing, index, onDelete}) => {
   const [priority, setPriority] = useState(taskData.priority || '');
   const [taskName, setTaskName] = useState(taskData.name || '');
   const daysLeft = calculateDaysLeft(taskData.date);
@@ -18,6 +18,12 @@ export const Tasks = ({ taskData, isNewAnimation, onTaskComplete, isEditing, ind
   const handleNameChange = (e) => {
     setTaskName(e.target.value);
     taskData.name = e.target.value;
+  };
+
+  const onDeleteTask = () => {
+    if (taskData.id) {
+      onDelete(taskData.id);
+    }
   };
 
   return (
@@ -40,7 +46,7 @@ export const Tasks = ({ taskData, isNewAnimation, onTaskComplete, isEditing, ind
           />
 
           {isEditing && (
-            <MenuEdit onStatusChange={onStatusChange} />
+            <MenuEdit onStatusChange={onStatusChange} onDeleteTask={onDeleteTask}/>
           )}
         </S.InputWrapper>
 

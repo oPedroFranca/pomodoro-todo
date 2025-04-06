@@ -3,10 +3,10 @@ import { useState, useEffect, useRef } from 'react';
 import { IoTrashOutline, IoCheckmarkOutline } from 'react-icons/io5';
 import { IoIosArrowForward } from "react-icons/io";
 
-export const MenuEdit = ({ onStatusChange }) => {
+export const MenuEdit = ({ onStatusChange, onDeleteTask }) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [isStatusOptionsOpen, setIsStatusOptionsOpen] = useState(false);
-  const [selectedStatus, setSelectedStatus] = useState(null); // Apenas um valor
+  const [selectedStatus, setSelectedStatus] = useState(null);
 
   const toggleDropdown = () => {
     setIsDropDownOpen(!isDropDownOpen);
@@ -36,6 +36,10 @@ export const MenuEdit = ({ onStatusChange }) => {
       onStatusChange(newStatus);
       return newStatus;
     });
+  };
+
+  const DeleteTask = () => {
+    onDeleteTask()
   };
 
   const dropdownRef = useRef(null);
@@ -76,7 +80,7 @@ export const MenuEdit = ({ onStatusChange }) => {
             )}
           </S.Option>
 
-          <S.Option className="trash">
+          <S.Option onClick={DeleteTask} className="trash">
             <IoTrashOutline size={16} />
             <span>Delete</span>
           </S.Option>
