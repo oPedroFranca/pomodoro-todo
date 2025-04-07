@@ -19,10 +19,12 @@ export const Header = () => {
           <S.DarkModeIcon />
         )}
 
-        <S.ButtonsheaderContainer isActive={isActive}>
+        <S.ButtonsheaderContainer isActive={isActive}
+          onClick={() => setIsActive(!isActive)}
+        >
           <S.ButtonTheme
             isActive={isActive}
-            onClick={() => setIsActive(!isActive)}
+            //onClick={() => setIsActive(!isActive)}
           />
         </S.ButtonsheaderContainer>
       </S.ToggleContainer>
