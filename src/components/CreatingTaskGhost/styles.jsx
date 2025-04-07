@@ -119,18 +119,18 @@ export const CancelButton = styled(BaseButton)`
   border: 1px solid #ffffff33;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.purple[400]};
-    border-color: ${({ theme }) => theme.colors.purple[400]};
+    color: ${({ theme }) => theme.colors.purple[700]};
+    border-color: ${({ theme }) => theme.colors.purple[700]};
     transform: translate(1px, -1px) scale(1);
   }
 `;
 
 export const ConfirmButton = styled(BaseButton)`
-  background-color: ${({ theme }) => theme.colors.purple[600]};
+  background-color: ${({ theme }) => theme.colors.purple[800]};
   color: white;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.purple[500]};
+    background-color: ${({ theme }) => theme.colors.purple[700]};
     transform: translate(1px, -1px) scale(1);
   }
 `;

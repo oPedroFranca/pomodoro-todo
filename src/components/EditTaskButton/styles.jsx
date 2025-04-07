@@ -4,7 +4,7 @@ import { IoSaveOutline } from "react-icons/io5";
 import styled from 'styled-components';
 
 export const EditIcon = styled(FaPen)`
-  color: #ffffff79;
+  color: ${({ theme }) => theme.colors.black[400]};
   font-size: 12px;
   margin-right: 8px;
   
@@ -12,7 +12,7 @@ export const EditIcon = styled(FaPen)`
 `;
 
 export const SaveIcon = styled(IoSaveOutline)`
-  color: #ffffff79;
+  color: ${({ theme }) => theme.colors.black[400]};
   font-size: 16px;
   margin-right: 8px;
   
@@ -32,8 +32,8 @@ export const EditContainer = styled.button`
   letter-spacing: 1px;
 
   background-color: transparent;
-  color: #ffffff79;
-  border: 1px solid #ffffff79;
+  color: ${({ theme }) => theme.colors.black[400]};
+  border: 1px solid ${({ theme }) => theme.colors.black[400]};
   border-radius: 8px;
 
   transition: all 0.3s ease-in-out;
