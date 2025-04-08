@@ -36,7 +36,7 @@ export const ButtonsContainer = styled.div`
 
 export const ButtonOptions = styled.button`
   background-color: ${({ active, theme }) => (active ? theme.colors.black[700] : "transparent")};
-  color: white;
+  color: ${({ theme }) => theme.font.primary[700]};
 
   font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
   border-radius: 4px;
@@ -141,4 +141,20 @@ export const PlayIcon = styled(defaultPlay)`
 export const PauseIcon = styled(defaultPause)`
   font-size: 20px;
   margin-top: 10px;
+`
+
+export const RelaxFocusTitle = styled.p`
+  font-size: 12px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.font.primary[400]};
+`
+
+export const StopOne = styled.stop`
+  offset: 0%;
+  stop-color: ${({ theme }) => theme.colors.purple[800]};
+`
+
+export const StopTwo = styled.stop`
+  offset: 100%;
+  stop-color: ${({ theme }) => theme.colors.purple[500]};
 `

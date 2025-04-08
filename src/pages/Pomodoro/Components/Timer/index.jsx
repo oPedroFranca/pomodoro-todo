@@ -82,8 +82,8 @@ export const Timer = () => {
         <S.ProgressCircle>
           <defs>
             <linearGradient id="gradientProgress" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#6147BD" />
-              <stop offset="100%" stopColor="#c7b3ff" />
+              <S.StopOne/>
+              <S.StopTwo/>
             </linearGradient>
           </defs>
 
@@ -118,9 +118,9 @@ export const Timer = () => {
             {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
           </S.Timer>
 
-          <p style={{ fontSize: '13px', fontWeight: '400', color: "#ffffff83" }}>
+          <S.RelaxFocusTitle>
             {mode === "pomodoro" ? "FOCUS" : "RELAX"}
-          </p>
+          </S.RelaxFocusTitle>
 
           {!isRunning ? (
             <S.PlayIcon />
