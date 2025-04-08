@@ -57,7 +57,7 @@ export const CloseIcon = styled(DefaultClose)`
 
   transition: color ease-in 0.2s;
   &:hover {
-    color: ${({ theme }) => theme.colors.purple[600]};
+    color: ${({ theme }) => theme.colors.purple[700]};
   }
 `;
 
@@ -91,17 +91,18 @@ export const Footer = styled.div`
 `;
 
 export const ButtonSubmit = styled.button`
-  background-color: ${({ theme }) => theme.colors.purple[600]};
+  background-color: ${({ theme }) => theme.colors.purple[700]};
   font-weight: 500;
 
-  width: 65px;
+  width: 85px;
   height: 35px;
 
   border-radius: 5px;
 
-  transition: font ease-in 0.2s, background-color ease-in 0.2s;
+  transition: all 0.3s ease-in-out;
   &:hover {
-    background-color: ${({ theme }) => theme.colors.purple[700]};
+    transform: translate(1px, -1px) scale(1);
+    background-color: ${({ theme }) => theme.colors.purple[600]};
   };
 `;
 

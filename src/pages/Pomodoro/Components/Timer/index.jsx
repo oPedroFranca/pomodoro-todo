@@ -54,12 +54,12 @@ export const Timer = () => {
   const handleModalSubmit = () => {
     notify();
     setIsRunning(false);
-    setTimerOptions((prev) => ({ ...prev })); 
+    setTimerOptions((prev) => ({ ...prev }));
     setTimeLeft(timerOptions[mode].timer);
   };
 
-  const minutes = Math.floor(timeLeft / 60000); 
-  const seconds = Math.floor((timeLeft % 60000) / 1000); 
+  const minutes = Math.floor(timeLeft / 60000);
+  const seconds = Math.floor((timeLeft % 60000) / 1000);
   const progress = ((timerOptions[mode].timer - timeLeft) / timerOptions[mode].timer) * 100;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -82,8 +82,8 @@ export const Timer = () => {
         <S.ProgressCircle>
           <defs>
             <linearGradient id="gradientProgress" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#6a50b1" />
-              <stop offset="100%" stopColor="#c7b3ff" />
+              <S.StopOne/>
+              <S.StopTwo/>
             </linearGradient>
           </defs>
 
@@ -91,8 +91,8 @@ export const Timer = () => {
             cx="100"
             cy="100"
             r="90"
-            stroke={darkTheme.colors.black[700]}
-            strokeWidth="10"
+            stroke={darkTheme.colors.black[600]}
+            strokeWidth="8"
             fill="transparent"
           />
           <circle
@@ -100,7 +100,7 @@ export const Timer = () => {
             cy="100"
             r="90"
             stroke="url(#gradientProgress)"
-            strokeWidth="10"
+            strokeWidth="8"
             fill="transparent"
             strokeDasharray="565.48"
             strokeDashoffset={565.48 - (progress / 100) * 565.48}
@@ -110,17 +110,17 @@ export const Timer = () => {
         </S.ProgressCircle>
 
         <S.InsideTimerProgress>
-          <p style={{ fontSize: '30px' }}>
+          {/* <p style={{ fontSize: '30px' }}>
             {mode === "pomodoro" ? "🍅" : "☕"}
-          </p>
+          </p> */}
 
           <S.Timer>
             {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
           </S.Timer>
 
-          <p style={{ fontSize: '13px', fontWeight: '400', color: "#ffffff83" }}>
+          <S.RelaxFocusTitle>
             {mode === "pomodoro" ? "FOCUS" : "RELAX"}
-          </p>
+          </S.RelaxFocusTitle>
 
           {!isRunning ? (
             <S.PlayIcon />
@@ -131,20 +131,25 @@ export const Timer = () => {
       </S.TimerContainer>
 
       <S.FooterButtonOptions>
-        <S.ButtonConfig onClick={toggleModal} />
+        <div>
+          <S.ButtonConfig onClick={toggleModal} />
+        </div>
         <S.ButtonStartStop onClick={toggleTimer}>{isRunning ? "Stop" : "Start"}</S.ButtonStartStop>
-        <S.ButtonReset onClick={resetTimer} />
+
+        <div>
+          <S.ButtonReset onClick={resetTimer} />
+        </div>
       </S.FooterButtonOptions>
 
-      {isModalOpen && 
-        <ModalTimer 
-          onSubmit={handleModalSubmit} 
+      {isModalOpen &&
+        <ModalTimer
+          onSubmit={handleModalSubmit}
           onClose={toggleModal}
           timerOptions={timerOptions}
           setTimerOptions={setTimerOptions}
         />
       }
-      
+
       <ToastProvider />
     </S.Container>
   );
