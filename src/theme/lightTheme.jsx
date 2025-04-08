@@ -1,10 +1,10 @@
 
-export const darkTheme = {
+export const lightTheme = {
   colors: {
     black: {
-      700: "#14161E",
-      600: "#1F232E",
-      500: "#383B4D",
+      700: "#ffffff",
+      600: "#c9c9c9",
+      500: "#b2b2b2",
       400: "#646775",
     },
     purple: {
@@ -17,8 +17,7 @@ export const darkTheme = {
   },
   font: {
     primary: {
-      700: "#ffffff",
-      400: "#ffffff83",
+      700: "#14161E",
     },
   }
 };

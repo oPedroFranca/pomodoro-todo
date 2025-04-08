@@ -15,8 +15,8 @@ export const Container = styled.div`
   
   margin: auto;
 
-  width: 400px;
-  height: 330px;
+  width: 390px;
+  height: 340px;
 
   box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.4);
   border-radius: 24px;
@@ -24,7 +24,7 @@ export const Container = styled.div`
 
 export const ButtonsContainer = styled.div`
   width: 100%;
-  padding: 0px 26px;
+  padding: 0px 20px;
   padding-bottom: 13px;
 
   display: flex;
@@ -36,7 +36,7 @@ export const ButtonsContainer = styled.div`
 
 export const ButtonOptions = styled.button`
   background-color: ${({ active, theme }) => (active ? theme.colors.black[700] : "transparent")};
-  color: white;
+  color: ${({ theme }) => theme.font.primary[700]};
 
   font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
   border-radius: 4px;
@@ -53,32 +53,43 @@ export const FooterButtonOptions = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: ${({ theme }) => theme.colors.black[500]};
+    border-radius: 50%;
+    padding: 5px;
+
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: translate(1px, -1px) scale(1);
+      color: ${({ theme }) => theme.colors.purple[600]};
+    }
+  }
 `
 
 export const ButtonConfig = styled(defaultGear)`
   font-size: 30px;
   cursor: pointer;
-
-  transition: color ease-in-out 0.2s;
-  &:hover {
-    color: ${({ theme }) => theme.colors.purple[600]};
-  }
 `
 
 export const ButtonStartStop = styled.button`
   background-color: ${({ theme }) => theme.colors.black[700]};
-  width: 150px;
+  width: 170px;
   height: 45px;
+  font-weight: 500;
 
-  border-radius: 50px;
+  border-radius: 10px;
 
   border: 2px solid transparent;
 
-  transition: border ease-in-out 0.2s;
-
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.189);
 
+  transition: all 0.3s ease-in-out;
   &:hover {
+    transform: translate(2px, -2px) scale(1);
     border: 2px solid ${({ theme }) => theme.colors.purple[600]};
   }
 `
@@ -86,11 +97,6 @@ export const ButtonStartStop = styled.button`
 export const ButtonReset = styled(defaultReset)`
   font-size: 30px;
   cursor: pointer;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.purple[600]};
-  }
 `;
 
 export const ProgressCircle = styled.svg`
@@ -105,7 +111,7 @@ export const TimerContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: red; */
+   background-color: ${({ theme }) => theme.colors.black[700]};
 
   width: 200px;
   height: 200px;
@@ -118,7 +124,7 @@ export const TimerContainer = styled.div`
 
 export const Timer = styled.div`
   font-size: 42px;
-  font-weight: 400;
+  font-weight: 500;
 `
 
 export const InsideTimerProgress = styled.div`
@@ -135,4 +141,20 @@ export const PlayIcon = styled(defaultPlay)`
 export const PauseIcon = styled(defaultPause)`
   font-size: 20px;
   margin-top: 10px;
+`
+
+export const RelaxFocusTitle = styled.p`
+  font-size: 12px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.font.primary[400]};
+`
+
+export const StopOne = styled.stop`
+  offset: 0%;
+  stop-color: ${({ theme }) => theme.colors.purple[800]};
+`
+
+export const StopTwo = styled.stop`
+  offset: 100%;
+  stop-color: ${({ theme }) => theme.colors.purple[500]};
 `
