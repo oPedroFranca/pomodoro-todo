@@ -1,49 +1,57 @@
 import * as S from './styles'
-import './index.css'
+
 export const PomodoroInfo = () => {
   return (
-    <S.Container>
-      <section className="usage-information">
+    <>
+      <S.GlobalStyle />
+      <S.UsageInformation>
 
-        <div className="title-wrapper"><h1 className="title">An online Pomodoro Timer to boost your productivity</h1></div>
+        <S.Title>
+          <h1>
+            An online Pomodoro Timer to boost your productivity
+          </h1>
+        </S.Title>
 
-        <div className = "container">
+        <S.Container>
 
-          <div className = "item1 box">
+          <S.InfoBox>
             <h2 className="subtitle">What is Pomofocus?</h2>
             <p>
-              Pomofocus is a customizable pomodoro timer that works on desktop & mobile browser.
-              The aim of this app is to help you focus any task you are working on, such as
-              study, writing, or coding. This app is inspired by <span>Pomodoro technique </span>
-              which is a time management method developed by Francesco Cirillo
+              Pomofocus is a customizable Pomodoro timer that works on desktop and mobile browsers.
+              The aim of this app is to help you focus on any task you're working on, such as
+              studying, writing, or coding. This app is inspired by the <span>Pomodoro Technique</span>,
+              a time management method developed by Francesco Cirillo.
             </p>
-          </div>
+          </S.InfoBox>
 
-          <div className = "item2 box">
-            <h2 className="subtitle">What is Pomodoro Technique?</h2>
-            <p>The Pomodoro Technique is created by Francesco Cirilo for a more productive way 
-            to work and study. The technique uses a timer too break down work into intervals, 
-            traditionally 25 minutesin length, separated by short breaks. Each interval is known
-            as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped kitchen 
-            timer that Cirillo used as a university student. - 
-            <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique"> Wikipedia</a>
+          <S.InfoBox>
+            <h2 className="subtitle">What is the Pomodoro Technique?</h2>
+            <p>
+              The Pomodoro Technique was created by Francesco Cirillo as a more productive way 
+              to work and study. The technique uses a timer to break down work into intervals, 
+              traditionally 25 minutes in length, separated by short breaks. Each interval is known
+              as a pomodoro, from the Italian word for "tomato", inspired by the tomato-shaped kitchen 
+              timer that Cirillo used as a university student. – 
+              <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique"> Wikipedia</a>
             </p>
-          </div>
+          </S.InfoBox>
 
-          <div className = "item3 box">
-            <h2 className="subtitle">What to use Pomodoro Timer?</h2>
+          <S.InfoBox>
+            <h2>
+              How to use the Pomodoro Timer?
+            </h2>
             <ol>
-              <li><span>Add tasks</span> to work on today</li>
-              <li><span>Set estimate pomodoros</span> (1 = 25min of work) for each tasks</li>
-              <li><span>Select a task</span> to work on</li>
-              <li><span>Start timer</span> and focus on the task for 25 minutes</li>
-              <li><span>Take a break</span> for 5 minutes when the alarm ring</li>
-              <li><span>Iterate</span> 3-5 until you finish the tasks</li>
+              <li><span>Add tasks</span> to work on today;</li>
+              <li><span>Set estimated pomodoros</span> (1 = 25min of work) for each task;</li>
+              <li><span>Select a task</span> to work on;</li>
+              <li><span>Start the timer</span> and focus on the task for 25 minutes;</li>
+              <li><span>Take a break</span> for 5 minutes when the alarm rings;</li>
+              <li><span>Repeat</span> 3–5 times until the task is done.</li>
             </ol>
-          </div>
+          </S.InfoBox>
 
-        </div>
-      </section>
-    </S.Container>
+        </S.Container>
+      </S.UsageInformation>
+    </>
   )
 }
