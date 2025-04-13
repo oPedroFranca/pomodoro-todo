@@ -17,7 +17,7 @@ export const TextTitle = styled.h1`
   margin-bottom: 15px;
   font-size: 16px;
   font-weight: 400;
-  color: aliceblue;
+  color: ${({ theme }) => theme.font.primary[700]}; //aliceblue
 `
 
 export const Header = styled.div`
@@ -38,7 +38,7 @@ export const SearchContainer = styled.div`
   align-items: center;
 
   &:focus-within svg {
-    color: ${({ theme }) => theme.colors.purple[600]};
+    color: ${({ theme }) => theme.font.primary[600]};
   }
 `;
 
@@ -52,7 +52,7 @@ export const SearchIcon = styled(IoSearch)`
 
 export const Search = styled.input`
   background-color: ${({ theme }) => theme.colors.black[600]};
-  color: ${({ theme }) => theme.colors.purple[800]};
+  color: ${({ theme }) => theme.font.primary[600]};
 
   width: 200px;
   height: 28px;
@@ -65,12 +65,12 @@ export const Search = styled.input`
 
   transition: border 0.3s ease;
   &:focus {
-    border: 1px solid ${({ theme }) => theme.colors.purple[800]};
+    border: 1px solid ${({ theme }) => theme.font.primary[600]};
   }
 `;
 
 export const ActualDate = styled.p`
   font-weight: 600;
   font-size: 12px;
-  color: #ffffffa4;
+  color: ${({ theme }) => theme.font.primary[700]};
 `;

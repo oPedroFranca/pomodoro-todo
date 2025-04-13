@@ -18,6 +18,7 @@ export const darkTheme = {
   font: {
     primary: {
       700: "#ffffff",
+      600: "#7960d1",
       400: "#ffffff83",
     },
   }

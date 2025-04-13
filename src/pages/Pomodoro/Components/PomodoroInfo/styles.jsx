@@ -10,7 +10,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: #1F232E;
     color: white;
   }
 
@@ -33,7 +32,7 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const UsageInformation = styled.section`
-  background-color: #1F232E;
+  background-color: ${({ theme }) => theme.colors.black[600]};
   width: 100vw;
   height: calc(100vh - 40px);
 `
@@ -51,7 +50,7 @@ export const Title = styled.div`
   font-size: 2rem;
   text-align: center;
   position: relative;
-  color: #7960d1;
+  color: ${({ theme }) => theme.font.primary[600]};
 `
 
 export const Container = styled.div`
@@ -73,13 +72,13 @@ export const InfoBox = styled.div`
   width: 26em;
   height: 28em;
 
-  background-color: #14161e;
+  background-color: ${({ theme }) => theme.colors.black[700]};;
 
-  box-shadow: 5px 5px 25px #7960d1;
+  box-shadow: 5px 5px 25px  ${({ theme }) => theme.font.primary[600]};
   padding: 0px 30px;
   border-radius: 10px;
   flex-shrink: 1;
 
-  color: white;
+  color: ${({ theme }) => theme.font.primary[700]};
 `
 

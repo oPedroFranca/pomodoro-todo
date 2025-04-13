@@ -6,7 +6,7 @@ export const CreateTaskContainer = styled.div`
   width: 100%;
   padding: ${({ isVisible }) => (isVisible ? '10px 16px' : '0 16px')};
   border-radius: 8px;
-  border: ${({ isVisible }) => (isVisible ? 'dashed 0.1em #ffffff67' : 'none')};
+  border: ${({ isVisible, theme }) => isVisible ? `dashed 0.1em ${theme.font.primary[400]}` : 'none'};
   box-shadow: ${({ isVisible }) => (isVisible ? '3px 6px 10px rgba(0, 0, 0, 0.2)' : 'none')};
   gap: ${({ isVisible }) => (isVisible ? '12px' : '0')};
   position: relative;
@@ -37,7 +37,7 @@ export const InputWrapper = styled.div`
 export const Checkbox = styled.div`
   width: 25px;
   height: 25px;
-  border: 1px dashed #ffffff67;
+  border: 1px dashed ${({ theme }) => theme.font.primary[400]};
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -49,13 +49,13 @@ export const TaskInput = styled.input`
   height: 40px;
   background: transparent;
   border: none;
-  color: white;
+  color: ${({ theme }) => theme.font.primary[700]};
   font-size: 16px;
   padding: 4px 8px;
 
   &:focus {
     outline: none;
-    border-bottom-color: ${({ theme }) => theme.colors.purple[600]};
+    border-bottom-color: ${({ theme }) => theme.colors.purple[800]};
   }
 `;
 
@@ -79,11 +79,11 @@ export const DateInfo = styled.div`
   margin-bottom: 5px;
 
   gap: 6px;
-  color: #ffffff67;
+  color:  ${({ theme }) => theme.font.primary[700]};
   font-size: 10px;
 
   svg {
-    color: #ffffff67;
+    color: ${({ theme }) => theme.font.primary[700]};
   }
 
   font-weight: 600;
@@ -115,11 +115,10 @@ const BaseButton = styled.button`
 
 export const CancelButton = styled(BaseButton)`
   background-color: transparent;
-  color: #ffffff67;
-  border: 1px solid #ffffff33;
+  color: ${({ theme }) => theme.colors.purple[700]};
+  border: 1px solid  ${({ theme }) => theme.colors.purple[400]};
 
   &:hover {
-    color: ${({ theme }) => theme.colors.purple[700]};
     border-color: ${({ theme }) => theme.colors.purple[700]};
     transform: translate(1px, -1px) scale(1);
   }

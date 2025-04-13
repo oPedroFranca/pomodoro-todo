@@ -24,15 +24,13 @@ export const ThemeToggleButton = styled.button`
   padding: 0.5rem 1rem;
   font-size: 1rem;
   border: 2px solid ${({ theme }) => theme.colors.purple[600]};
-  background-color: ${({ theme }) => theme.colors.black[600]};
-  color: ${({ theme }) => theme.font.primary[700]};
+  background-color: ${({ theme }) => theme.colors.purple[600]};
+  color: white;
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.purple[600]};
-    color: ${({ theme }) => theme.colors.black[700]};
     transform: scale(1.05);
   }
 `;

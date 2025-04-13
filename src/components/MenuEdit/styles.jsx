@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const MenuHamburguer = styled(IoMenu)`
-  color: #ffffffa4;
+  color:  ${({ theme }) => theme.font.primary[400]};
   cursor: pointer;
   transition: all 0.3s ease;
 
@@ -32,7 +32,7 @@ export const Option = styled.div`
   align-items: center;
   gap: 8px;
   padding: 8px 10px;
-  color: white;
+  color:  white;
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -40,7 +40,7 @@ export const Option = styled.div`
   position: relative;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.black[700]};
+    // background-color: ${({ theme }) => theme.colors.black[700]};
   }
 
   svg {
@@ -53,6 +53,10 @@ export const Option = styled.div`
     svg {
       color: #ff0000da;
     }
+  }
+  
+  span {
+    color: white;
   }
 
   &.status {
@@ -86,7 +90,7 @@ export const PriorityButtonsContainer = styled.div`
   gap: 10px;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.black[700]};
+   //background-color: ${({ theme }) => theme.colors.black[700]};
   }
 
   cursor: default;
@@ -103,8 +107,8 @@ export const Checkbox = styled.div`
   cursor: pointer;
   transition: all 0.3s ease;
 
-  background-color: ${({ checked, theme }) => (checked ? theme.colors.purple[600] : "transparent")};
-  border-color: ${({ checked, theme }) => (checked ? theme.colors.purple[600] : "#ffffff67")};
+  background-color: ${({ checked, theme }) => (checked ? theme.colors.purple[700] : "transparent")};
+  border-color: ${({ checked, theme }) => (checked ? theme.colors.purple[700] : "#ffffff67")};
 
   &:hover {
     transform: translate(1px, -1px) scale(1);

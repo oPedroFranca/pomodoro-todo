@@ -22,8 +22,8 @@ export const FloatingButton = styled.button `
   visibility: ${({ isPomodoroActive }) => (isPomodoroActive ? "visible" : "hidden")};
   transition: opacity 0.5s ease-in-out 700ms, visibility 0s ease 0s, border ease-in-out 0.3s;
 
-  &:hover {
-    border: solid 2px ${({ theme }) => theme.colors.purple[700]}
+   &:hover {
+    border: solid 2px ${({ theme }) => theme.font.primary[600]};
   }
 `;
 
@@ -33,6 +33,6 @@ export const Arrow = styled(defaultArrow) `
 
   transition: color ease-in-out 0.2s;
   ${FloatingButton}:hover & {
-    color: ${({ theme }) => theme.colors.purple[700]};
+    color: ${({ theme }) => theme.font.primary[600]};
   }
 `

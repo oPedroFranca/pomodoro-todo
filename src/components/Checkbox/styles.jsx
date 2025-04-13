@@ -12,7 +12,7 @@ export const Checkbox = styled.div`
   transition: all 0.3s ease;
 
   background-color: ${({ checked, theme }) => (checked ? theme.colors.purple[600] : "transparent")};
-  border-color: ${({ checked, theme }) => (checked ? theme.colors.purple[600] : "#ffffff67")};
+  border-color: ${({ checked, theme }) => (checked ? theme.colors.purple[600] : theme.colors.black[600])};
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.purple[600]};

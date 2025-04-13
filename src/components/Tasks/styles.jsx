@@ -59,12 +59,12 @@ export const TaskInput = styled.input`
   height: 40px;
   background: transparent;
   border: none;
-  color: white;
+  color: ${({ theme }) => theme.font.primary[700]};
   font-size: 16px;
   padding: 4px 8px;
 
   text-decoration: ${({ isDone }) => (isDone ? 'line-through' : 'none')};
-  color: ${({ isDone }) => (isDone ? '#ffffff67' : 'white')};
+  color: ${({ isDone, theme }) => isDone ? theme.font.primary[400] : theme.font.primary[400]};
 
   &:focus {
     outline: none;
@@ -99,10 +99,10 @@ export const DateInfo = styled.div`
   margin-bottom: 5px;
 
   gap: 6px;
-  color: #ffffff67;
+  color: ${({ theme }) => theme.font.primary[400]};;
 
   svg {
-    color: #ffffff67;
+    color: ${({ theme }) => theme.font.primary[400]};
   }
 
   font-weight: 600;
@@ -146,7 +146,7 @@ export const PriorityTag = styled.div`
 
 export const DaysLeftTag = styled.div`
   display: flex;
-  background-color: #26293D;
+  background-color: ${({ theme }) => theme.colors.black[600]};
   color: #ffffffa4;
   font-weight: 400;
   padding: 4px 8px;

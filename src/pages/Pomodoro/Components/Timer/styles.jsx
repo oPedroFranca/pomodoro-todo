@@ -36,7 +36,7 @@ export const ButtonsContainer = styled.div`
 
 export const ButtonOptions = styled.button`
   background-color: ${({ active, theme }) => (active ? theme.colors.black[700] : "transparent")};
-  color: ${({ theme }) => theme.font.primary[700]};
+  color: [${({ theme }) => theme.font.primary[700]}];
 
   font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
   border-radius: 4px;
