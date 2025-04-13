@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { getCurrentDate } from '../../../../utils/getCurrentDay';
 import { CreateTaskButton } from '../../../../components/CreateTaskButton';
+import { EditTaskButton } from '../../../../components/EditTaskButton';
 import * as S from './styles';
 import { CreatingTaskGhost } from '../../../../components/CreatingTaskGhost';
 import { Tasks } from '../../../../components/Tasks';
 import { toast } from 'react-toastify';
 import { ToastProvider } from '../../../../components/ToastProvider';
-
+import { NoTaskMessage } from './components/NoTaskMessage'
 export const MainContent = () => {
   const [search, setSearch] = useState('');
   const [isCreateButtonClicked, setIsCreateButtonClicked] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const currentDate = getCurrentDate();
 
   const [tasks, setTasks] = useState({});
@@ -31,7 +33,7 @@ export const MainContent = () => {
         id: taskId,
         name: inputValue,
         date: currentDate,
-        priority: 'High',
+        priority: '',
         isDone: false,
         selected: false,
       },
@@ -46,9 +48,17 @@ export const MainContent = () => {
       ...prevTasks,
       [taskId]: {
         ...prevTasks[taskId],
-        isDone: !prevTasks[taskId].isDone, 
+        isDone: !prevTasks[taskId].isDone,
       },
     }));
+  };
+
+  const handleDeleteTask = (taskId) => {
+    setTasks((prevTasks) => {
+      const updatedTasks = { ...prevTasks };
+      delete updatedTasks[taskId];
+      return updatedTasks;
+    });
   };
 
   const taskList = Object.values(tasks);
@@ -65,7 +75,13 @@ export const MainContent = () => {
 
           <S.ActualDate>{currentDate}</S.ActualDate>
 
-          <CreateTaskButton onClick={() => setIsCreateButtonClicked(true)} />
+          <div style={{ display: 'flex', gap: '10px' }} >
+            <EditTaskButton onClick={() => setIsEditing(!isEditing)} isEditing={isEditing} />
+            <CreateTaskButton onClick={() => {
+              setIsCreateButtonClicked(true)
+              setIsEditing(false)
+            }} />
+          </div>
         </S.Header>
 
         <S.TextTitle>Tasks - {taskList.length}</S.TextTitle>
@@ -75,13 +91,21 @@ export const MainContent = () => {
           submit={handleSubmit}
         />
 
-        {taskList.map((task) => (
-          <Tasks 
-            key={task.id} taskData={task} 
-            isNew={task.id === newTaskId}
-            onTaskComplete={() => handleTaskCompletion(task.id)}
-          />
-        ))}
+
+        {taskList.length === 0 ? (
+          <NoTaskMessage />
+        ) : (
+          taskList.map((task, index) => (
+            <Tasks
+              key={task.id} taskData={task}
+              index={index}
+              isNew={task.id === newTaskId}
+              isEditing={isEditing}
+              onTaskComplete={() => handleTaskCompletion(task.id)}
+              onDelete={handleDeleteTask}
+            />
+          ))
+        )}
       </S.Container>
     </>
   );

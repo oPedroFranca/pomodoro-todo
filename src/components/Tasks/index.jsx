@@ -2,36 +2,74 @@ import { CiCalendar } from "react-icons/ci";
 import { Checkbox } from '../Checkbox';
 import * as S from './styles';
 import { calculateDaysLeft } from '../../utils/calculateDaysLeft';
-import {MenuEdit} from '../../components/MenuEdit'
+import { MenuEdit } from '../../components/MenuEdit';
+import { useState } from 'react';
 
-export const Tasks = ({ taskData, isNewAnimation, onTaskComplete }) => {
+export const Tasks = ({ taskData, isNewAnimation, onTaskComplete, isEditing, index, onDelete}) => {
+  const [priority, setPriority] = useState(taskData.priority || '');
+  const [taskName, setTaskName] = useState(taskData.name || '');
   const daysLeft = calculateDaysLeft(taskData.date);
 
+  const onStatusChange = (value) => {
+    setPriority(value || '');
+    taskData.priority = value || '';
+  };
+
+  const handleNameChange = (e) => {
+    setTaskName(e.target.value);
+    taskData.name = e.target.value;
+  };
+
+  const onDeleteTask = () => {
+    if (taskData.id) {
+      onDelete(taskData.id);
+    }
+  };
+
   return (
-    <S.Container isVisible={true} isNew={isNewAnimation}>
-      <S.InputWrapper>
-        <Checkbox onChange={onTaskComplete} />
-        <S.TaskInput isDone={taskData.isDone} value={taskData.name} readOnly />
-        <MenuEdit />
-      </S.InputWrapper>
+    <S.ContainerGhost>
 
-      {!taskData.isDone && (
-        <S.Footer>
-          <S.DateInfo>
-            <CiCalendar size={16} />
-            <span>{taskData.date}</span>
-          </S.DateInfo>
+      <S.Container
+        isVisible={true}
+        isNew={isNewAnimation}
+        isEditing={isEditing}
+        animationDelay={`${index * 0.2}s`}
+      >
+        <S.InputWrapper>
+          <Checkbox onChange={onTaskComplete} />
 
-          <S.DaysLeftTag>
-            <p>{daysLeft > 0 ? `${daysLeft} days left` : 'Created today!'}</p>
-          </S.DaysLeftTag>
+          <S.TaskInput
+            isDone={taskData.isDone}
+            value={taskName}
+            readOnly={!isEditing}
+            onChange={isEditing ? handleNameChange : undefined}
+          />
 
-          <S.PriorityTag priority={taskData.priority}>
-            <S.PriorityCircle priority={taskData.priority} />
-            <p>{taskData.priority || 'Normal'}</p>
-          </S.PriorityTag>
-        </S.Footer>
-      )}
-    </S.Container>
+          {isEditing && (
+            <MenuEdit onStatusChange={onStatusChange} onDeleteTask={onDeleteTask}/>
+          )}
+        </S.InputWrapper>
+
+        {!taskData.isDone && (
+          <S.Footer>
+            <S.DateInfo>
+              <CiCalendar size={16} />
+              <span>{taskData.date}</span>
+            </S.DateInfo>
+
+            <S.DaysLeftTag>
+              <p>{daysLeft > 0 ? `${daysLeft} days left` : 'Created today!'}</p>
+            </S.DaysLeftTag>
+
+            {priority && (
+              <S.PriorityTag priority={priority}>
+                <S.PriorityCircle priority={priority} />
+                <p>{priority}</p>
+              </S.PriorityTag>
+            )}
+          </S.Footer>
+        )}
+      </S.Container>
+    </S.ContainerGhost>
   );
 };

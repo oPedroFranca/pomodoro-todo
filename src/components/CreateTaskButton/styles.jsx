@@ -11,7 +11,7 @@ export const SumIcon = styled(IoAddOutline)`
 export const CreateTask = styled.button`
   display: flex;
   
-  background-color: ${({ theme }) => theme.colors.purple[700]};
+  background-color: ${({ theme }) => theme.colors.purple[800]};
   font-weight: 400;
   font-size: 15px;
 
@@ -28,6 +28,6 @@ export const CreateTask = styled.button`
 
   &:hover {
     transform: translate(1px, -1px) scale(1);
-    background-color: ${({ theme }) => theme.colors.purple[600]};
+    background-color: ${({ theme }) => theme.colors.purple[700]};
   };
 `;

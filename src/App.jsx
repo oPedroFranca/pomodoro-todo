@@ -3,11 +3,13 @@ import { TodoList } from './pages/TodoList/index.jsx';
 import * as S from './styles.jsx';
 import { useRef, useState } from 'react';
 import { darkTheme } from './theme/darkTheme.jsx';
+import { lightTheme } from './theme/lightTheme.jsx';
 import { ThemeProvider } from 'styled-components';
 
 function App() {
   const containerRef = useRef(null);
   const [isPomodoroActive, setIsPomodoroActive] = useState(true);
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
 
   const handleSlide = () => {
     if (containerRef.current) {
@@ -19,9 +21,16 @@ function App() {
     setIsPomodoroActive(!isPomodoroActive);
   };
 
+  const toggleTheme = () => {
+    setIsDarkTheme(prev => !prev);
+  };
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <S.MainContainer ref={containerRef}>
+        <S.ThemeToggleButton onClick={toggleTheme}>
+          {isDarkTheme ? '☀️ Claro' : '🌙 Escuro'}
+        </S.ThemeToggleButton>
         <S.Page>
           <TodoList
             handleSlide={handleSlide}

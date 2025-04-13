@@ -52,7 +52,7 @@ export const SearchIcon = styled(IoSearch)`
 
 export const Search = styled.input`
   background-color: ${({ theme }) => theme.colors.black[600]};
-  color: ${({ theme }) => theme.colors.purple[600]};
+  color: ${({ theme }) => theme.colors.purple[800]};
 
   width: 200px;
   height: 28px;
@@ -65,7 +65,7 @@ export const Search = styled.input`
 
   transition: border 0.3s ease;
   &:focus {
-    border: 1px solid ${({ theme }) => theme.colors.purple[600]};
+    border: 1px solid ${({ theme }) => theme.colors.purple[800]};
   }
 `;
 
@@ -73,6 +73,4 @@ export const ActualDate = styled.p`
   font-weight: 600;
   font-size: 12px;
   color: #ffffffa4;
-  margin-right: 95px;
 `;
-
