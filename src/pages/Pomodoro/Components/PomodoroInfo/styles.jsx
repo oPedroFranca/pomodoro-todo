@@ -20,22 +20,23 @@ export const GlobalStyle = createGlobalStyle`
 
   ol {
     margin-left: 1.9vh;
-    font-size: 1.2em;
+    font-size: 12px;
   }
 
   p {
-    font-size: 1.2em;
+    font-size: 12px;
   }
 
   span,
   a {
     color: #7960d1;
+  }
 `
 
 export const UsageInformation = styled.section`
   background-color: #1F232E;
   width: 100vw;
-  height: calc(100vh - 40px);
+  /* height: calc(100vh - 40px); */
 `
 export const Title = styled.div`
   width: 100%;
@@ -48,15 +49,17 @@ export const Title = styled.div`
   padding-top: clamp(3rem, 3vh, 8rem);
   padding: 1rem 2rem;
 
-  font-size: 2rem;
+  font-size: 1.4rem;
   text-align: center;
   position: relative;
-  color: #7960d1;
+  color: ${({ theme }) => theme.colors.purple[700]};
 `
 
 export const Container = styled.div`
   height: 80vh;
   width: 100vw;
+
+  font-size: 12px;
 
   display: flex;   
   flex-wrap: wrap;
@@ -71,15 +74,21 @@ export const Container = styled.div`
 `
 export const InfoBox = styled.div`
   width: 26em;
-  height: 28em;
+  height: 420px;
 
   background-color: #14161e;
 
-  box-shadow: 5px 5px 25px #7960d1;
-  padding: 0px 30px;
+  box-shadow: 5px 5px 25px ${({ theme }) => theme.colors.purple[700]};
+  padding: 20px 30px;
   border-radius: 10px;
   flex-shrink: 1;
 
   color: white;
+`
+
+export const Span = styled.span`
+  color: ${({ theme }) => theme.colors.purple[700]};
+  font-weight: 500;
+  font-size: 16px;
 `
 

@@ -32,18 +32,17 @@ function App() {
           {isDarkTheme ? '☀️ Claro' : '🌙 Escuro'}
         </S.ThemeToggleButton>
         <S.Page>
-          <TodoList
-            handleSlide={handleSlide}
-            isPomodoroActive={isPomodoroActive}
-          />
-        </S.Page>
-        <S.Page>
           <Pomodoro
             handleSlide={handleSlide}
             isPomodoroActive={isPomodoroActive}
           />
         </S.Page>
-
+        <S.Page>
+          <TodoList
+            handleSlide={handleSlide}
+            isPomodoroActive={isPomodoroActive}
+          />
+        </S.Page>
       </S.MainContainer>
     </ThemeProvider>
   );

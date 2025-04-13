@@ -19,7 +19,7 @@ export const PomodoroInfo = () => {
             <p>
               Pomofocus is a customizable Pomodoro timer that works on desktop and mobile browsers.
               The aim of this app is to help you focus on any task you're working on, such as
-              studying, writing, or coding. This app is inspired by the <span>Pomodoro Technique</span>,
+              studying, writing, or coding. This app is inspired by the <S.Span>Pomodoro Technique</S.Span>,
               a time management method developed by Francesco Cirillo.
             </p>
           </S.InfoBox>
@@ -41,12 +41,12 @@ export const PomodoroInfo = () => {
               How to use the Pomodoro Timer?
             </h2>
             <ol>
-              <li><span>Add tasks</span> to work on today;</li>
-              <li><span>Set estimated pomodoros</span> (1 = 25min of work) for each task;</li>
-              <li><span>Select a task</span> to work on;</li>
-              <li><span>Start the timer</span> and focus on the task for 25 minutes;</li>
-              <li><span>Take a break</span> for 5 minutes when the alarm rings;</li>
-              <li><span>Repeat</span> 3–5 times until the task is done.</li>
+              <li><S.Span>Add tasks</S.Span> to work on today;</li>
+              <li><S.Span>Set estimated pomodoros</S.Span> (1 = 25min of work) for each task;</li>
+              <li><S.Span>Select a task</S.Span> to work on;</li>
+              <li><S.Span>Start the timer</S.Span> and focus on the task for 25 minutes;</li>
+              <li><S.Span>Take a break</S.Span> for 5 minutes when the alarm rings;</li>
+              <li><S.Span>Repeat</S.Span> 3–5 times until the task is done.</li>
             </ol>
           </S.InfoBox>
 
