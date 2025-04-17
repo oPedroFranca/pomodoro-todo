@@ -88,12 +88,16 @@ export const DateInfo = styled.div`
 
   font-weight: 600;
   border-radius: 50px;
-  width: 100px;
+  width: 110px;
   margin-left: 40px;
 
   letter-spacing: 5px;
 
   padding: 4px;
+
+  > span {
+    color: #ffffff67;
+  }
 `;
 
 const BaseButton = styled.button`
