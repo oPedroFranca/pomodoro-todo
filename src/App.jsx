@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 import { darkTheme } from './theme/darkTheme.jsx';
 import { lightTheme } from './theme/lightTheme.jsx';
 import { ThemeProvider } from 'styled-components';
+import { LoginPage } from './pages/LoginPages/index.jsx';
 
 function App() {
   const containerRef = useRef(null);
@@ -27,7 +28,7 @@ function App() {
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-      <S.MainContainer ref={containerRef}>
+      {/* <S.MainContainer ref={containerRef}>
         <S.ThemeToggleButton onClick={toggleTheme}>
           {isDarkTheme ? '☀️ Claro' : '🌙 Escuro'}
         </S.ThemeToggleButton>
@@ -43,7 +44,9 @@ function App() {
             isPomodoroActive={isPomodoroActive}
           />
         </S.Page>
-      </S.MainContainer>
+      </S.MainContainer> */}
+
+      <LoginPage />
     </ThemeProvider>
   );
 }
