@@ -75,15 +75,24 @@ export const Container = styled.div`
 export const InfoBox = styled.div`
   width: 26em;
   height: 420px;
-
   background-color: #14161e;
 
-  box-shadow: 5px 5px 25px ${({ theme }) => theme.colors.purple[700]};
+  box-shadow: 2px 2px 10px ${({ theme }) => theme.colors.purple[700]};
   padding: 20px 30px;
   border-radius: 10px;
   flex-shrink: 1;
 
   color: white;
+
+  > p {
+    font-size: 14px;
+  }
+
+  > ol {
+    > li {
+      font-size: 14px;
+    }
+  }
 `
 
 export const Span = styled.span`
