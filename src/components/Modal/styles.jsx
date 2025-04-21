@@ -13,13 +13,13 @@ export const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
 
   z-index: 10;
-  
 `;
 
 export const ModalContent = styled.div`
   background-color: ${({ theme }) => theme.colors.black[600]};
   border-radius: 10px;
   width: 380px;
+  margin-right: 10px;
   max-width: 90%;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 

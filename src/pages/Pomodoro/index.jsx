@@ -10,7 +10,7 @@ export const Pomodoro = ({ handleSlide, isPomodoroActive}) => {
     <S.Container>
 
       <S.TimerContainer>
-        <Header />
+        {/* <Header /> */}
         <Timer />
         <FloatingButton onClick={handleSlide} isPomodoroActive={isPomodoroActive} />
       </S.TimerContainer>
