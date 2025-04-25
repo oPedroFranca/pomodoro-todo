@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
   span,
   a {
     color: #7960d1;
+  }
 `
 
 export const UsageInformation = styled.section`
@@ -51,6 +52,10 @@ export const Title = styled.div`
   text-align: center;
   position: relative;
   color: ${({ theme }) => theme.font.primary[600]};
+
+  > h1 {
+    font-size: 36px;
+  }
 `
 
 export const Container = styled.div`
