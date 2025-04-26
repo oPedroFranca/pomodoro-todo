@@ -29,7 +29,7 @@ function App() {
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <S.MainContainer ref={containerRef}>
         <S.ThemeToggleButton onClick={toggleTheme}>
-          {isDarkTheme ? '☀️ Claro' : '🌙 Escuro'}
+          {isDarkTheme ? '🌙 Dark' : '☀️ Ligth'}
         </S.ThemeToggleButton>
         <S.Page>
           <Pomodoro

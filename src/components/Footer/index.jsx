@@ -12,7 +12,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer style={{ width: "100%", background: "linear-gradient(135deg, #1e1f29, #2e3142)", padding: "0.5rem 0" }}>
+    <footer style={{ width: "100%", background: "linear-gradient(135deg, #1e1f29, #14161E)", padding: "0.5rem 0" }}>
       <Container>
         {/* ÍCONES em cards circulares com tamanho maior */}
         <div style={{ display: "flex", gap: "2rem", justifyContent: "center", alignItems: "center", paddingBottom: "0.5rem" }}>
@@ -54,7 +54,7 @@ export const Footer = () => {
 
         {/* Seção de Contato mais compacta */}
         <div style={{ textAlign: "center", color: "white", marginTop: "0.5rem" }}>
-          <h3 style={{ marginBottom: "0.4rem", fontSize: "1.1rem", letterSpacing: "1px", color: "#c084fc", textTransform: "uppercase" }}>
+          <h3 style={{ marginBottom: "0.4rem", fontSize: "1.0rem", letterSpacing: "1px", color: "#c084fc", textTransform: "uppercase" }}>
             Contact Us
           </h3>
           <p

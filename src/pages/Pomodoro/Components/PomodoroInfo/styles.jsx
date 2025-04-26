@@ -35,7 +35,7 @@ export const GlobalStyle = createGlobalStyle`
 export const UsageInformation = styled.section`
   background-color: ${({ theme }) => theme.colors.black[600]};
   width: 100vw;
-  height: calc(100vh - 40px);
+  /* height: calc(100vh - 40px); */
 `
 export const Title = styled.div`
   width: 100%;
@@ -53,13 +53,14 @@ export const Title = styled.div`
   position: relative;
   color: ${({ theme }) => theme.font.primary[600]};
 
+  margin-top: 30px;
+
   > h1 {
     font-size: 36px;
   }
 `
 
 export const Container = styled.div`
-  height: 80vh;
   width: 100vw;
 
   display: flex;   
@@ -70,8 +71,10 @@ export const Container = styled.div`
   gap: 3em;
   flex-grow: 1;
 
-  padding: 0 clamp(1rem, 5vw, 6rem);
-  padding-bottom: clamp(2rem, 10vh, 8rem);
+  margin: 80px 0px;
+
+  /* padding: 0 clamp(1rem, 5vw, 6rem); */
+  /* padding-bottom: clamp(2rem, 10vh, 8rem); */
 `
 export const InfoBox = styled.div`
   width: 26em;
@@ -79,11 +82,27 @@ export const InfoBox = styled.div`
 
   background-color: ${({ theme }) => theme.colors.black[700]};;
 
-  box-shadow: 5px 5px 25px  ${({ theme }) => theme.font.primary[600]};
+  box-shadow: 3px 3px 15px  ${({ theme }) => theme.font.primary[600]};
   padding: 0px 30px;
   border-radius: 10px;
   flex-shrink: 1;
 
   color: ${({ theme }) => theme.font.primary[700]};
+
+  > h2 {
+    font-size: 1.3em;
+  }
+
+  > p {
+    font-size: 1.1em;
+  }
+
+  > ol {
+    font-size: 1.1em;
+
+    li > span {
+      font-weight: 600;
+    }
+  }
 `
 

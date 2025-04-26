@@ -20,5 +20,5 @@ export const PomodoroInfoContainer = styled.div `
   display: flex;
 
   width: 100vw;
-  height: calc(100vh - 40px);
+  /* height: calc(100vh - 40px); */
 `
