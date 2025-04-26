@@ -1,0 +1,28 @@
+/* src/components/Footer.css */
+
+.footer {
+    background-color: #1e1e1e;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+  }
+  
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .icon-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: white;
+  }
+  
+  .icon-text i {
+    font-size: 2.5rem;
+  }
+  
