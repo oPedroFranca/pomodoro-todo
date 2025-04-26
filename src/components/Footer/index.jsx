@@ -17,13 +17,13 @@ export const Footer = () => {
         {/* ÍCONES em cards circulares com tamanho maior */}
         <div style={{ display: "flex", gap: "2rem", justifyContent: "center", alignItems: "center", paddingBottom: "0.5rem" }}>
           {[{
-            icon: <FaJs size={45} color="white" />, url: "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript", hover: "#f7df1e"
+            icon: <FaJs size={30} color="white" />, url: "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript", hover: "#f7df1e"
           }, {
-            icon: <FaReact size={45} color="white" />, url: "https://react.dev/", hover: "#61dafb"
+            icon: <FaReact size={30} color="white" />, url: "https://react.dev/", hover: "#61dafb"
           }, {
-            icon: <SiStyledcomponents size={45} color="white" />, url: "https://styled-components.com/", hover: "#db7093"
+            icon: <SiStyledcomponents size={30} color="white" />, url: "https://styled-components.com/", hover: "#db7093"
           }, {
-            icon: <FaGithub size={45} color="white" />, url: "https://github.com/oPedroFranca/pomodoro-todo", hover: "#ccc"
+            icon: <FaGithub size={30} color="white" />, url: "https://github.com/oPedroFranca/pomodoro-todo", hover: "#ccc"
           }].map(({ icon, url, hover }, index) => (
             <a
               key={index}
@@ -33,8 +33,8 @@ export const Footer = () => {
               style={{
                 backgroundColor: "#2a2c3b",
                 borderRadius: "50%",
-                width: "70px",
-                height: "70px",
+                width: "40px",
+                height: "40px",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
